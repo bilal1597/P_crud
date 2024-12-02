@@ -15,12 +15,12 @@
             <h1> Register Page</h1>
             <br>
             <div class="card-body">
-                <form class="row g-3" action="{{route('user.post')}}" method="POST" >
+                <form class="row g-3" action="{{route('post.register')}}" method="POST" >
                     @csrf
 
                     <div class="col-md-10 ">
                         <label for="exampleInputEmail1" class="form-label">Name </label>
-                        <input type="text" name="name" class="form-control" id="name" placeholder="Enter Your Name">
+                        <input type="text" name="name" value="{{old('name')}}" class="form-control" id="name" placeholder="Enter Your Name">
                     @error('name')
                     <span class="text-danger">{{$message}} </span>
                     @enderror
@@ -28,7 +28,7 @@
 
                       <div class="col-md-10 ">
                         <label for="exampleInputEmail1" class="form-label">Mobile No. </label>
-                        <input type="number" name="number" class="form-control" id="number" placeholder="Enter Mobile No.">
+                        <input type="number" name="number" value="{{old('number')}}" class="form-control" id="number" placeholder="Enter Mobile No.">
                         @error('number')
                         <span class="text-danger">{{$message}} </span>
                         @enderror
@@ -36,7 +36,7 @@
 
                     <div class="col-md-10 ">
                         <label for="exampleInputEmail1" class="form-label">Email </label>
-                        <input type="email" name="email" class="form-control" id="exampleInputEmail1" placeholder="Enter Your Email">
+                        <input type="email" name="email" value="{{old('email')}}" class="form-control" id="exampleInputEmail1" placeholder="Enter Your Email">
                         @error('email')
                         <span class="text-danger">{{$message}} </span>
                         @enderror
@@ -62,7 +62,7 @@
                     </div>
 
                     <div>
-                        <a href="{{route('user.login')}}" class="btn btn-success float-end">Login</a>
+                        <a href="{{route('login')}}" class="btn btn-success float-end">Login</a>
                     </div>
                     <div class="col-12">
                         <a href="/forgot" class="btn btn-primary float-end">Forgot Your Password</a>

@@ -5,9 +5,13 @@ use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 
-Route::get('login', [UserController::class, 'viewLogin'])->name('user.login');
+Route::middleware(['auth'])->group(function () {
+    Route::get('products', [ProductController::class, 'viewProducts'])->name('view.products');
+});
 
-Route::get('register', [UserController::class, 'viewRegister'])->name('user.register');
-Route::post('register', [UserController::class, 'postRegister'])->name('user.post');
+Route::get('login', [UserController::class, 'viewLogin'])->name('login');
+Route::post('login', [UserController::class, 'postLogin'])->name('post.login');
+Route::get('logout', [UserController::class, 'Logout'])->name('logout');
 
-Route::get('products', [ProductController::class, 'viewProducts'])->name('view.products');
+Route::get('register', [UserController::class, 'viewRegister'])->name('get.register');
+Route::post('register', [UserController::class, 'postRegister'])->name('post.register');

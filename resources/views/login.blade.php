@@ -10,9 +10,11 @@
 <body>
     <div class="container">
         <div class="card-header ">
+            <br>
             <h1>Login Page </h1>
+            <br>
             <div class="card-body">
-                <form class="row g-3" action="" method="POST" >
+                <form class="row g-3" action="{{route('post.login')}}" method="POST" >
                     @csrf
                     @if (session('success'))
                     <div class="alert alert-success">
@@ -43,7 +45,7 @@
                       <button type="submit" class="btn btn-primary">Sign in</button>
                     </div>
                     <div>
-                        <a href="{{route('user.register')}}" class="btn btn-success float-end">Register</a>
+                        <a href="{{route('get.register')}}" class="btn btn-success float-end">Register</a>
                     </div>
                     <div class="col-12">
                         <a href="/forgot" class="btn btn-primary float-end">Forgot Your Password</a>
